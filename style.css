@@ -7,6 +7,41 @@
 body {
   height: 3000px;
   overflow-x: hidden;
+  padding-top: 93px;
+  position: relative;
+}
+
+body.debug * {
+  outline: 1px solid red;
+}
+
+/* body::before {
+  content: '';
+  position: absolute;
+  left: -35%;
+  top: -5%;
+  display: none;
+  width: 479px;
+  height: 497px;
+  border-radius: 50%;
+  background-color: #d5aee4;
+  filter: blur(150px);
+  z-index: -10;
+} */
+
+body::after {
+  content: url(assets/blob.svg);
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 872px;
+  z-index: -10;
+}
+
+.container {
+  max-width: 1161px;
+  margin: auto;
 }
 
 .buttons:hover {
@@ -15,11 +50,20 @@ body {
 
 /* ___Navbar___ */
 .section--header {
-  padding: 47px 0;
+  /* outline: 1px solid red; */
+  padding: 24px 0;
   position: fixed;
+  z-index: 9999;
   top: 0;
   left: 0;
   width: 100%;
+  transition: 300ms;
+}
+
+.section--header.scroll {
+  background-color: white;
+  transition: 700ms;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .section--header .navbar {
@@ -99,9 +143,152 @@ body {
   display: none;
 }
 
+/* ___Hero___ */
+.section--hero {
+  min-height: calc(100vh - 93px);
+  display: flex;
+  align-items: center;
+}
+
+.section--hero .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section--hero .hero__headline--highlight {
+  color: #df6951;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.section--hero .hero__headline,
+.section--hero .hero__headline--underline {
+  font-size: 84px;
+  font-family: Volkhov, serif;
+  font-weight: 700;
+  color: #181e4b;
+  line-height: 89px;
+  letter-spacing: -4px;
+}
+
+.section--hero .hero__headline--underline {
+  position: relative;
+}
+
+.section--hero .hero__headline--underline::after {
+  content: url(assets/underline.svg);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  z-index: -9;
+  left: -20%;
+}
+
+.section--hero .hero__description {
+  color: #5e6282;
+  font-weight: 500;
+  line-height: 30px;
+  margin: 30px 0 34px;
+}
+
+.section--hero .hero__cta {
+  display: flex;
+  column-gap: 44px;
+}
+
+.section--hero .button--cta {
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 18px 26px;
+  background-color: #f1a501;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(241, 165, 1, 0.15);
+}
+
+.section--hero .hero__demo {
+  display: flex;
+  align-items: center;
+  column-gap: 22px;
+}
+
+.section--hero .hero__demo svg {
+  cursor: pointer;
+}
+
+.section--hero .hero__demo a {
+  font-size: 17px;
+  font-weight: 500;
+  color: #686d77;
+  text-decoration: none;
+}
+
+.section--hero .hero__image {
+  height: 564px;
+}
+
 /* ___Media Query___ */
 
+@media screen and (max-width: 575px) {
+  .container {
+    width: 85vw;
+    /* outline: 1px solid red; */
+  }
+
+  /* ___Hero___ */
+  .section--hero .hero__headline--highlight {
+    font-size: 16px;
+  }
+
+  .section--hero .main .hero__headline,
+  .section--hero .main .hero__headline--underline {
+    font-size: 52px;
+    line-height: 50px;
+  }
+
+  .section--hero .main .hero__headline--underline {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section--hero .main .hero__headline--underline::after {
+    content: url(assets/underline.svg);
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    z-index: -9;
+    left: -20%;
+    width: 100px;
+  }
+
+  .section--hero .main .hero__description {
+    max-width: 80vw;
+  }
+
+  .section--hero .main .hero__cta {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .container {
+    max-width: 680px;
+  }
+}
+
 @media screen and (max-width: 991px) {
+  body {
+    width: 100%;
+  }
+
+  .container {
+    /* width: 720px; */
+  }
+
   /* ____Navbar Toggle____ */
   .section--header .nav__toggle {
     width: 25px;
@@ -185,6 +372,40 @@ body {
     transform: rotate(45deg);
     transform-origin: bottom right;
     transition: 300ms;
+  }
+
+  /* ___Hero___ */
+  .section--hero {
+    /* outline: 1px solid red; */
+  }
+
+  .section--hero .container {
+    flex-direction: column;
+    /* outline: 1px solid red; */
+    align-items: start;
+    row-gap: 32px;
+  }
+
+  .section--hero .container > * {
+    /* outline: 1px solid red; */
+  }
+
+  .section--hero .hero__headline,
+  .section--hero .hero__headline--underline {
+    font-size: 92px;
+    line-height: 94px;
+  }
+
+  .section--hero .hero__description {
+    max-width: 50vw;
+    /* outline: 1px solid red; */
+  }
+
+  .section--hero .hero__image {
+    width: 70vw;
+    height: unset;
+    aspect-ratio: 1 / 1;
+    margin: auto;
   }
 }
 
