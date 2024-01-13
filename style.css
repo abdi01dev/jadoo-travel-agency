@@ -231,6 +231,71 @@ body::after {
   text-decoration: none;
 }
 
+/* ___Services___ */
+.section--services .container {
+  display: flex;
+  justify-content: center;
+}
+
+.section--services .heading {
+  text-align: center;
+}
+
+.section--services .heading__sub-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #5e6282;
+}
+
+.section--services .heading__title {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: Volkhov, serif;
+  color: #14183e;
+  margin: 12px 0 64px;
+}
+
+.section--services .cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.section--services .card {
+  padding: 38px;
+  box-sizing: border-box;
+  width: 267px;
+  height: 316px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 36px;
+  transition: 200ms;
+}
+
+.section--services .card.active,
+.section--services .card:focus {
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  transform: scale(1.08);
+  outline: none;
+  cursor: pointer;
+}
+
+.section--services .card__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e1d4c;
+  margin: 34px 0 16px;
+}
+
+.section--services .card__body {
+  font-weight: 500;
+  color: #5e6282;
+  text-align: center;
+}
+
 /* =============== Media Query =============== */
 
 /* ======= Mobile ======= */
@@ -467,10 +532,6 @@ body::after {
 
 /* ======= Desktop Large ======= */
 @media (width > 1440px) {
-  * {
-    /* outline: 1px solid red; */
-  }
-
   .container {
     max-width: 1201px;
   }
