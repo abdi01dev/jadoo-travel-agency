@@ -45,3 +45,9 @@ function resetCardClass() {
     card.classList.remove('active');
   });
 }
+
+// Trip
+const cardLikeButton = document.querySelector('svg.card__like');
+cardLikeButton.addEventListener('click', () => {
+  cardLikeButton.classList.toggle('active');
+});
