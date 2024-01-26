@@ -51,3 +51,47 @@ const cardLikeButton = document.querySelector('svg.card__like');
 cardLikeButton.addEventListener('click', () => {
   cardLikeButton.classList.toggle('active');
 });
+
+// Testimonial Card
+const testimonialCardsWrapper = document.querySelector('.section--testimonials .cards-wrapper');
+const testimonialCards = Array.from(document.querySelectorAll('.section--testimonials .testimonial__card'));
+const indicators = Array.from(document.querySelectorAll('.indicators-wrapper .indicator'));
+
+i = 0;
+setInterval(() => {
+  if (i > 2) {
+    i = 0;
+  }
+
+  switch (i) {
+    case 0:
+      if (!testimonialCards[0].classList.contains('active')) {
+        testimonialCards[0].classList.add('active');
+        testimonialCards[1].classList.add('next');
+      }
+      testimonialCards[0].classList.remove('next');
+      testimonialCards[2].classList.remove('active');
+      break;
+    case 1:
+      testimonialCards[1].classList.add('active');
+      testimonialCards[1].classList.remove('next');
+      testimonialCards[0].classList.remove('active');
+      testimonialCards[2].classList.add('next');
+      break;
+    case 2:
+      testimonialCards[2].classList.add('active');
+      testimonialCards[2].classList.remove('next');
+      testimonialCards[1].classList.remove('active');
+      testimonialCards[0].classList.add('next');
+      break;
+  }
+  resetIndicator();
+  indicators[i].classList.add('indicator--active');
+  i++;
+}, 2500);
+
+function resetIndicator() {
+  indicators.forEach(i => {
+    i.classList.remove('indicator--active');
+  });
+}
