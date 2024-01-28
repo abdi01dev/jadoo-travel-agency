@@ -1,3 +1,14 @@
+// Body Ddebug
+document.body.addEventListener('dblclick', () => {
+  document.body.classList.toggle('debug');
+});
+
+document.body.addEventListener('keypress', e => {
+  if (e.key == 'a') {
+    document.body.classList.toggle('debug');
+  }
+});
+
 // Active Navbar
 const nav = document.querySelector('.sections.section--header .navbar');
 const toggle = document.querySelector('.sections.section--header .nav__toggle');
@@ -19,11 +30,6 @@ window.addEventListener('scroll', e => {
     header.classList.remove('scroll');
   }
   // currentScrollY >= minY ? header.classList.add('scroll') : header.classList.remove('scroll');
-});
-
-// Body Ddebug
-document.body.addEventListener('dblclick', () => {
-  document.body.classList.toggle('debug');
 });
 
 // Cards on hover
