@@ -17,8 +17,8 @@ body {
 body.debug * {
   outline: 1px solid red;
 }
-
-/* body::before {
+/* 
+body::before {
   content: '';
   position: absolute;
   left: -35%;
@@ -33,7 +33,7 @@ body.debug * {
 } */
 
 body::after {
-  content: url(assets/blob.svg);
+  content: url(assets/svgs/blob.svg);
   display: block;
   position: absolute;
   top: 0;
@@ -181,7 +181,7 @@ body::after {
 }
 
 .section--hero .hero__headline--underline::after {
-  content: url(assets/underline.svg);
+  content: url(assets/svgs/underline.svg);
   display: block;
   position: absolute;
   bottom: 0;
@@ -296,6 +296,7 @@ body::after {
   font-weight: 500;
   color: #5e6282;
   text-align: center;
+  line-height: 26px;
 }
 
 /* _Destinations */
@@ -678,6 +679,7 @@ body::after {
   padding: 28px 34px;
   box-sizing: border-box;
   margin-top: 34px;
+  /* margin-top: 500px; */
   position: absolute;
   right: 0;
   background-color: white;
@@ -709,6 +711,7 @@ body::after {
   font-weight: 500;
   color: #5e6282;
   max-width: 402px;
+  line-height: 32px;
 }
 
 .section--testimonials .testimonial__name {
@@ -827,6 +830,7 @@ body::after {
   font-weight: 600;
   cursor: pointer;
   background-image: linear-gradient(to bottom, #ff946d, #ff7d68);
+  z-index: 99;
 }
 
 .section--subscribe .subscribe__icon {
@@ -977,7 +981,7 @@ body::after {
   }
 
   .section--hero .main .hero__headline--underline::after {
-    content: url(assets/underline.svg);
+    content: url(assets/svgs/underline.svg);
     display: none;
     position: absolute;
     bottom: 0;
@@ -1012,25 +1016,28 @@ body::after {
   }
 
   .section--services .heading__title {
-    font-size: 28px;
+    font-size: 34px;
   }
 
   .section--destinations .heading__title {
-    font-size: 28px;
+    font-size: 34px;
   }
 
   .section--testimonials .main .heading__title {
-    font-size: 28px;
+    font-size: 34px;
   }
 
   .section--testimonials .cards-wrapper .testimonial__image {
     width: 40px;
     height: 40px;
+    top: -20px;
+    left: -20px;
   }
 
   .section--testimonials .cards-wrapper .testimonial__card {
     width: 300px;
     transform: translateX(20px);
+    /* transform: translateX(0px); */
   }
 
   .section--testimonials .testimonial__card.next {
@@ -1040,10 +1047,6 @@ body::after {
 
 /* _sm */
 @media (576px <= width < 768px) {
-  /* * {
-    outline: 1px solid red;
-  } */
-
   .container {
     max-width: 540px;
   }
@@ -1108,13 +1111,6 @@ body::after {
     gap: 24px;
   }
 }
-
-/* Tablet */
-/* @media (width <= 768px) {
-  .section--footer .main {
-    gap: 24px;
-  }
-} */
 
 /* Max Laptop */
 @media (width < 992px) {
@@ -1251,6 +1247,8 @@ body::after {
   .section--testimonials .cards-wrapper {
     grid-area: card;
     justify-self: start;
+    /* outline: 1px solid red; */
+    transform: translateY(22px);
   }
 }
 
@@ -1258,6 +1256,10 @@ body::after {
 @media screen and (min-width: 992px) {
   .section--header .nav__toggle {
     display: none;
+  }
+
+  .section--testimonials .cards-wrapper {
+    transform: translateY(50px);
   }
 }
 
